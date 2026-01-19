@@ -142,7 +142,7 @@ const translations = {
     faqTitle: "常见问题 (FAQ)",
     faqs: [
       { q: "这款 PDF 压缩工具是免费的吗？", a: "是的，本工具完全免费，且所有运算都在您的电脑上进行。" },
-      { q: "我的文件会被上传到服务器吗？", a: "绝对不会。我们使用浏览器端技术 (WASM)，您的文件永远不会离开您的设备，隐私绝对安全。" }
+      { q: "我的文件会被上传到服务器吗？", a: "绝对不会。我们使用浏览器端技术 (WebAssembly)，您的文件永远不会离开您的设备，隐私绝对安全。" }
     ],
     items: {
       images: "影像资源",
@@ -1202,11 +1202,13 @@ export default function App() {
     const totalPages = pdf.numPages;
     
     const { jsPDF } = window.jspdf;
+    // 初始化時先不設定頁面大小，稍後動態新增
     const doc = new jsPDF({
       orientation: 'p',
       unit: 'px',
       hotfixes: ['px_scaling'] 
     });
+    // 刪除預設的空白頁
     doc.deletePage(1);
 
     for (let i = 1; i <= totalPages; i++) {
@@ -1214,7 +1216,15 @@ export default function App() {
       setProgressStatus(t.status.resampling(i, totalPages));
 
       const page = await pdf.getPage(i);
+      
+      // 取得原始頁面尺寸 (不縮放)，用於判斷方向與設定 PDF 頁面大小
+      const originalViewport = page.getViewport({ scale: 1.0 });
+      // 取得渲染用的 Viewport (包含縮放)
       const viewport = page.getViewport({ scale: scale });
+
+      // 自動偵測頁面方向
+      const isLandscape = originalViewport.width > originalViewport.height;
+      const orientation = isLandscape ? 'l' : 'p';
 
       const canvas = document.createElement('canvas');
       const context = canvas.getContext('2d');
@@ -1227,9 +1237,9 @@ export default function App() {
       }).promise;
 
       const imgData = canvas.toDataURL('image/jpeg', quality);
-      const originalViewport = page.getViewport({ scale: 1.0 });
       
-      doc.addPage([originalViewport.width, originalViewport.height]);
+      // 關鍵修正：加入 orientation 參數，並使用原始尺寸
+      doc.addPage([originalViewport.width, originalViewport.height], orientation);
       doc.addImage(imgData, 'JPEG', 0, 0, originalViewport.width, originalViewport.height);
       
       canvas.width = 0;
