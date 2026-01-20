@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.google.com/search?q=https://%E6%82%A8%E7%9A%84%E7%B6%B2%E5%9D%80.vercel.app/sitemap.xml
