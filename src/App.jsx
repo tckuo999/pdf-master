@@ -83,7 +83,7 @@ const translations = {
       cleaningMeta: "清除元數據...",
       rebuilding: "重組物件流..."
     },
-    visits: "累積瀏覽人次"
+    // Removed 'visits' as it's now handled by the badge itself
   },
   'zh-CN': {
     name: "简体中文",
@@ -162,8 +162,7 @@ const translations = {
       analyzingStruct: "分析文件结构...",
       cleaningMeta: "清除元数据...",
       rebuilding: "重组对象流..."
-    },
-    visits: "累计浏览人次"
+    }
   },
   'en': {
     name: "English",
@@ -242,8 +241,7 @@ const translations = {
       analyzingStruct: "Analyzing structure...",
       cleaningMeta: "Cleaning metadata...",
       rebuilding: "Rebuilding streams..."
-    },
-    visits: "Total Visits"
+    }
   },
   'ja': {
     name: "日本語",
@@ -321,8 +319,7 @@ const translations = {
       analyzingStruct: "構造を分析中...",
       cleaningMeta: "メタデータを削除中...",
       rebuilding: "ストリームを再構築中..."
-    },
-    visits: "累計訪問数"
+    }
   },
   'ko': {
     name: "한국어",
@@ -399,8 +396,7 @@ const translations = {
       analyzingStruct: "구조 분석 중...",
       cleaningMeta: "메타데이터 정리 중...",
       rebuilding: "스트림 재구축 중..."
-    },
-    visits: "방문자 수"
+    }
   },
   'es': {
     name: "Español",
@@ -470,8 +466,7 @@ const translations = {
       analyzingStruct: "Analizando estructura...",
       cleaningMeta: "Limpiando metadatos...",
       rebuilding: "Reconstruyendo flujos..."
-    },
-    visits: "Visitas"
+    }
   },
   'fr': {
     name: "Français",
@@ -541,8 +536,7 @@ const translations = {
       analyzingStruct: "Analyse structure...",
       cleaningMeta: "Nettoyage métadonnées...",
       rebuilding: "Reconstruction..."
-    },
-    visits: "Visites"
+    }
   },
   'de': {
     name: "Deutsch",
@@ -612,8 +606,7 @@ const translations = {
       analyzingStruct: "Analysiere Struktur...",
       cleaningMeta: "Lösche Metadaten...",
       rebuilding: "Erstelle neu..."
-    },
-    visits: "Besucher"
+    }
   },
   'pt': {
     name: "Português",
@@ -683,8 +676,7 @@ const translations = {
       analyzingStruct: "Analisando...",
       cleaningMeta: "Limpando meta...",
       rebuilding: "Reconstruindo..."
-    },
-    visits: "Visitas"
+    }
   },
   'ru': {
     name: "Русский",
@@ -754,8 +746,7 @@ const translations = {
       analyzingStruct: "Анализ...",
       cleaningMeta: "Очистка...",
       rebuilding: "Сборка..."
-    },
-    visits: "Визиты"
+    }
   },
   'it': {
     name: "Italiano",
@@ -825,8 +816,7 @@ const translations = {
       analyzingStruct: "Analisi...",
       cleaningMeta: "Pulizia...",
       rebuilding: "Ricostruzione..."
-    },
-    visits: "Visite"
+    }
   },
   'tr': {
     name: "Türkçe",
@@ -896,8 +886,7 @@ const translations = {
       analyzingStruct: "Analiz...",
       cleaningMeta: "Temizleniyor...",
       rebuilding: "Oluşturuluyor..."
-    },
-    visits: "Ziyaretler"
+    }
   },
   'ar': {
     name: "العربية",
@@ -967,8 +956,7 @@ const translations = {
       analyzingStruct: "تحليل الهيكل...",
       cleaningMeta: "تنظيف البيانات...",
       rebuilding: "إعادة البناء..."
-    },
-    visits: "الزيارات"
+    }
   }
 };
 
@@ -985,7 +973,6 @@ export default function App() {
   const [errorMsg, setErrorMsg] = useState('');
   const [lang, setLang] = useState('zh-TW'); // 預設語言
   const [showLangMenu, setShowLangMenu] = useState(false);
-  const [pageId, setPageId] = useState('');
   
   // 壓縮等級狀態 'low' | 'medium' | 'high'
   const [compressionMode, setCompressionMode] = useState('medium');
@@ -1009,10 +996,7 @@ export default function App() {
       setLang('en');
     }
 
-    // 2. 設定計數器 Page ID (確保在 client 端執行)
-    setPageId(window.location.hostname || 'localhost');
-
-    // 3. 載入函式庫
+    // 2. 載入函式庫
     const loadLibs = async () => {
       try {
         await loadScript("https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js");
@@ -1774,18 +1758,13 @@ export default function App() {
         <p>© 2024 {t.title}. Powered by PDF.js & jsPDF.</p>
         <p className="mt-2 text-xs opacity-60">Secure Client-side Compression | No Server Upload</p>
         
-        {/* Visitor Counter Badge */}
-        {pageId && (
-          <div className="mt-4 flex justify-center items-center gap-2 opacity-70 hover:opacity-100 transition-opacity" title={t.visits}>
-            <span className="text-xs">{t.visits}:</span>
-            <img 
-              src={`https://visitor-badge.laobi.icu/badge?page_id=${pageId}&left_text=&right_color=blue&left_color=gray`} 
-              alt="visitor count" 
-              className="h-5"
-              loading="lazy"
-            />
-          </div>
-        )}
+        {/* Visitor Counter Badge - Hits.seeyoufarm */}
+        <div className="mt-4 flex justify-center items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+          <img 
+            src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fpdf-compressor-tiny-tc.vercel.app&count_bg=%232563EB&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false" 
+            alt="hits" 
+          />
+        </div>
       </footer>
     </div>
   );
