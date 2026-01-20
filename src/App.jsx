@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Upload, FileText, CheckCircle, BarChart2, Download, RefreshCw, AlertCircle, Image as ImageIcon, Type, Database, Shield, Settings, Info, Zap, Layers, Maximize2, Globe, Coffee, ChevronDown, Check, HelpCircle } from 'lucide-react';
+import { Upload, FileText, CheckCircle, BarChart2, Download, RefreshCw, AlertCircle, Image as ImageIcon, Type, Database, Shield, Settings, Info, Zap, Layers, Maximize2, Globe, Coffee, ChevronDown, Check, HelpCircle, Eye } from 'lucide-react';
 
 // --- 多語言字典 (i18n) + SEO 數據 ---
 const translations = {
   'zh-TW': {
     name: "繁體中文",
-    // SEO Meta Data (強化隱私與本地執行)
     metaTitle: "PDF 壓縮大師 - 100% 本地執行、隱私安全的 PDF 瘦身工具",
     metaDesc: "最安全的 PDF 壓縮工具，所有運算皆在瀏覽器本地執行，檔案絕不上傳伺服器，確保 100% 隱私保護。支援數位重掃描與無損優化。",
     keywords: "PDF壓縮, 本地執行, 隱私保護, PDF瘦身, 線上PDF工具, 免費PDF, 離線PDF, 不上傳伺服器",
@@ -83,7 +82,8 @@ const translations = {
       analyzingStruct: "分析文件結構...",
       cleaningMeta: "清除元數據...",
       rebuilding: "重組物件流..."
-    }
+    },
+    visits: "累積瀏覽人次"
   },
   'zh-CN': {
     name: "简体中文",
@@ -142,7 +142,7 @@ const translations = {
     faqTitle: "常见问题 (FAQ)",
     faqs: [
       { q: "这款 PDF 压缩工具是免费的吗？", a: "是的，本工具完全免费，且所有运算都在您的电脑上进行。" },
-      { q: "我的文件会被上传到服务器吗？", a: "绝对不会。我们使用浏览器端技术 (WebAssembly)，您的文件永远不会离开您的设备，隐私绝对安全。" }
+      { q: "我的文件会被上传到服务器吗？", a: "绝对不会。我们使用浏览器端技术 (WASM)，您的文件永远不会离开您的设备，隐私绝对安全。" }
     ],
     items: {
       images: "影像资源",
@@ -162,7 +162,8 @@ const translations = {
       analyzingStruct: "分析文件结构...",
       cleaningMeta: "清除元数据...",
       rebuilding: "重组对象流..."
-    }
+    },
+    visits: "累计浏览人次"
   },
   'en': {
     name: "English",
@@ -241,7 +242,8 @@ const translations = {
       analyzingStruct: "Analyzing structure...",
       cleaningMeta: "Cleaning metadata...",
       rebuilding: "Rebuilding streams..."
-    }
+    },
+    visits: "Total Visits"
   },
   'ja': {
     name: "日本語",
@@ -319,7 +321,8 @@ const translations = {
       analyzingStruct: "構造を分析中...",
       cleaningMeta: "メタデータを削除中...",
       rebuilding: "ストリームを再構築中..."
-    }
+    },
+    visits: "累計訪問数"
   },
   'ko': {
     name: "한국어",
@@ -396,7 +399,8 @@ const translations = {
       analyzingStruct: "구조 분석 중...",
       cleaningMeta: "메타데이터 정리 중...",
       rebuilding: "스트림 재구축 중..."
-    }
+    },
+    visits: "방문자 수"
   },
   'es': {
     name: "Español",
@@ -466,7 +470,8 @@ const translations = {
       analyzingStruct: "Analizando estructura...",
       cleaningMeta: "Limpiando metadatos...",
       rebuilding: "Reconstruyendo flujos..."
-    }
+    },
+    visits: "Visitas"
   },
   'fr': {
     name: "Français",
@@ -536,7 +541,8 @@ const translations = {
       analyzingStruct: "Analyse structure...",
       cleaningMeta: "Nettoyage métadonnées...",
       rebuilding: "Reconstruction..."
-    }
+    },
+    visits: "Visites"
   },
   'de': {
     name: "Deutsch",
@@ -606,7 +612,8 @@ const translations = {
       analyzingStruct: "Analysiere Struktur...",
       cleaningMeta: "Lösche Metadaten...",
       rebuilding: "Erstelle neu..."
-    }
+    },
+    visits: "Besucher"
   },
   'pt': {
     name: "Português",
@@ -676,7 +683,8 @@ const translations = {
       analyzingStruct: "Analisando...",
       cleaningMeta: "Limpando meta...",
       rebuilding: "Reconstruindo..."
-    }
+    },
+    visits: "Visitas"
   },
   'ru': {
     name: "Русский",
@@ -746,7 +754,8 @@ const translations = {
       analyzingStruct: "Анализ...",
       cleaningMeta: "Очистка...",
       rebuilding: "Сборка..."
-    }
+    },
+    visits: "Визиты"
   },
   'it': {
     name: "Italiano",
@@ -816,7 +825,8 @@ const translations = {
       analyzingStruct: "Analisi...",
       cleaningMeta: "Pulizia...",
       rebuilding: "Ricostruzione..."
-    }
+    },
+    visits: "Visite"
   },
   'tr': {
     name: "Türkçe",
@@ -886,7 +896,8 @@ const translations = {
       analyzingStruct: "Analiz...",
       cleaningMeta: "Temizleniyor...",
       rebuilding: "Oluşturuluyor..."
-    }
+    },
+    visits: "Ziyaretler"
   },
   'ar': {
     name: "العربية",
@@ -956,7 +967,8 @@ const translations = {
       analyzingStruct: "تحليل الهيكل...",
       cleaningMeta: "تنظيف البيانات...",
       rebuilding: "إعادة البناء..."
-    }
+    },
+    visits: "الزيارات"
   }
 };
 
@@ -973,6 +985,7 @@ export default function App() {
   const [errorMsg, setErrorMsg] = useState('');
   const [lang, setLang] = useState('zh-TW'); // 預設語言
   const [showLangMenu, setShowLangMenu] = useState(false);
+  const [pageId, setPageId] = useState('');
   
   // 壓縮等級狀態 'low' | 'medium' | 'high'
   const [compressionMode, setCompressionMode] = useState('medium');
@@ -996,7 +1009,10 @@ export default function App() {
       setLang('en');
     }
 
-    // 2. 載入函式庫
+    // 2. 設定計數器 Page ID (確保在 client 端執行)
+    setPageId(window.location.hostname || 'localhost');
+
+    // 3. 載入函式庫
     const loadLibs = async () => {
       try {
         await loadScript("https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js");
@@ -1026,11 +1042,11 @@ export default function App() {
     document.title = t.metaTitle || t.title;
 
     // Helper to update or create meta tags
-    const updateMeta = (name, content) => {
-      let element = document.querySelector(`meta[name="${name}"]`);
+    const updateMeta = (name, content, attribute = 'name') => {
+      let element = document.querySelector(`meta[${attribute}="${name}"]`);
       if (!element) {
         element = document.createElement('meta');
-        element.setAttribute('name', name);
+        element.setAttribute(attribute, name);
         document.head.appendChild(element);
       }
       element.setAttribute('content', content);
@@ -1039,6 +1055,13 @@ export default function App() {
     // Update Meta Description & Keywords
     if (t.metaDesc) updateMeta('description', t.metaDesc);
     if (t.keywords) updateMeta('keywords', t.keywords);
+
+    // --- NEW: Open Graph Tags for Social Sharing ---
+    updateMeta('og:title', t.metaTitle || t.title, 'property');
+    updateMeta('og:description', t.metaDesc || t.heroDesc, 'property');
+    updateMeta('og:type', 'website', 'property');
+    // 如果您有 logo 圖片，請將網址填入這裡，否則預設會抓取網站截圖
+    // updateMeta('og:image', 'https://your-site.com/og-image.jpg', 'property'); 
 
     // Inject JSON-LD Structured Data
     const scriptId = 'structured-data';
@@ -1750,6 +1773,19 @@ export default function App() {
       <footer className="border-t border-slate-200 mt-auto py-8 text-center text-slate-400 text-sm">
         <p>© 2024 {t.title}. Powered by PDF.js & jsPDF.</p>
         <p className="mt-2 text-xs opacity-60">Secure Client-side Compression | No Server Upload</p>
+        
+        {/* Visitor Counter Badge */}
+        {pageId && (
+          <div className="mt-4 flex justify-center items-center gap-2 opacity-70 hover:opacity-100 transition-opacity" title={t.visits}>
+            <span className="text-xs">{t.visits}:</span>
+            <img 
+              src={`https://visitor-badge.laobi.icu/badge?page_id=${pageId}&left_text=&right_color=blue&left_color=gray`} 
+              alt="visitor count" 
+              className="h-5"
+              loading="lazy"
+            />
+          </div>
+        )}
       </footer>
     </div>
   );
