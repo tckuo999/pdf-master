@@ -5,9 +5,10 @@ import { Upload, FileText, CheckCircle, BarChart2, Download, RefreshCw, AlertCir
 const translations = {
   'zh-TW': {
     name: "繁體中文",
-    metaTitle: "PDF 壓縮大師 - 100% 本地執行、隱私安全的 PDF 瘦身工具",
-    metaDesc: "最安全的 PDF 壓縮工具，所有運算皆在瀏覽器本地執行，檔案絕不上傳伺服器，確保 100% 隱私保護。支援數位重掃描與無損優化。",
-    keywords: "PDF壓縮, 本地執行, 隱私保護, PDF瘦身, 線上PDF工具, 免費PDF, 離線PDF, 不上傳伺服器",
+    // SEO Meta Data (強化長尾關鍵字)
+    metaTitle: "PDF 壓縮大師 - 免費線上 PDF 瘦身，支援 Mac/手機與離線壓縮",
+    metaDesc: "最強大的免費 PDF 壓縮工具。支援將 PDF 壓縮到 1MB 或 200kb 以下，適用於 Mac、Windows 與手機。100% 本地運算，檔案不外流，是安全的 Adobe Acrobat 替代方案。",
+    keywords: "PDF壓縮, PDF瘦身, PDF壓縮到1MB, 免費PDF工具, Mac PDF壓縮, 手機PDF壓縮, 離線PDF, PDF變小, Adobe替代",
     
     title: "PDF 壓縮大師",
     subtitle: "Pro 版 - 本地隱私優先",
@@ -59,10 +60,12 @@ const translations = {
     sponsorBtn: "贊助開發者",
     faqTitle: "常見問題 (FAQ)",
     faqs: [
-      { q: "這款 PDF 壓縮工具是免費的嗎？", a: "是的，本工具完全免費，且所有運算都在您的電腦上進行。" },
-      { q: "我的檔案會被上傳到伺服器嗎？", a: "絕對不會。我們使用瀏覽器端技術 (WebAssembly)，您的檔案永遠不會離開您的裝置，隱私絕對安全。" },
-      { q: "為什麼壓縮後的 PDF 無法選取文字？", a: "如果您選擇「標準」或「強力」模式，為了達到最大壓縮率，我們會將頁面轉換為影像格式。若需保留文字，請選擇「輕度壓縮」。" },
-      { q: "支援哪些語言？", a: "我們支援繁體中文、簡體中文、英文、日文、韓文、西班牙文等 13 種主流語言。" }
+      { q: "這款 PDF 壓縮工具是免費的嗎？", a: "是的，本工具完全免費，沒有隱藏費用，且所有運算都在您的電腦上進行，無需安裝任何軟體。" },
+      { q: "如何將 PDF 壓縮到 1MB 或 200kb 以下？", a: "建議選擇「強力壓縮」模式。我們使用數位重掃描技術，能大幅減少圖片解析度，有效將大檔案瘦身至適合 Email 傳送的大小。" },
+      { q: "支援 Mac、Windows 或手機使用嗎？", a: "支援。這是一個跨平台的網頁服務 (Web App)，無論您使用 macOS、Windows、iPhone (iOS) 或 Android 手機，只要有瀏覽器即可使用。" },
+      { q: "我的檔案會被上傳到伺服器嗎？", a: "絕對不會。我們使用先進的 WebAssembly 技術，檔案永遠不會離開您的裝置，確保 100% 的商業機密與個人隱私安全。" },
+      { q: "這可以作為 Adobe Acrobat 的免費替代方案嗎？", a: "是的，針對 PDF 減肥與優化功能，本工具提供了類似的效果但完全免費，且操作更簡單快速。" },
+      { q: "為什麼壓縮後的文字變成圖片了？", a: "為了達到極致的壓縮率，「標準」與「強力」模式會將頁面轉換為高壓縮比的影像格式。若您需要保留可選取的文字，請使用「輕度壓縮」模式。" }
     ],
     items: {
       images: "影像資源",
@@ -83,13 +86,13 @@ const translations = {
       cleaningMeta: "清除元數據...",
       rebuilding: "重組物件流..."
     },
-    // Removed 'visits' as it's now handled by the badge itself
+    visits: "累積瀏覽人次"
   },
   'zh-CN': {
     name: "简体中文",
-    metaTitle: "PDF 压缩大师 - 100% 本地运行、隐私安全的 PDF 瘦身工具",
-    metaDesc: "最安全的 PDF 压缩工具，所有运算皆在浏览器本地运行，文件绝不上传服务器，确保 100% 隐私保护。支持数字重扫描与无损优化。",
-    keywords: "PDF压缩, 本地运行, 隐私保护, PDF瘦身, 免费PDF, 离线PDF, 不上传服务器",
+    metaTitle: "PDF 压缩大师 - 免费在线 PDF 瘦身，支持 Mac/手机与离线压缩",
+    metaDesc: "最强大的免费 PDF 压缩工具。支持将 PDF 压缩到 1MB 或 200kb 以下，适用于 Mac、Windows 与手机。100% 本地运算，文件不外流。",
+    keywords: "PDF压缩, PDF瘦身, PDF压缩到1MB, 免费PDF工具, Mac PDF压缩, 手机PDF压缩, 离线PDF, 不上传服务器",
     
     title: "PDF 压缩大师",
     subtitle: "Pro 版 - 本地隐私优先",
@@ -141,8 +144,12 @@ const translations = {
     sponsorBtn: "赞助开发者",
     faqTitle: "常见问题 (FAQ)",
     faqs: [
-      { q: "这款 PDF 压缩工具是免费的吗？", a: "是的，本工具完全免费，且所有运算都在您的电脑上进行。" },
-      { q: "我的文件会被上传到服务器吗？", a: "绝对不会。我们使用浏览器端技术 (WASM)，您的文件永远不会离开您的设备，隐私绝对安全。" }
+      { q: "这款 PDF 压缩工具是免费的吗？", a: "是的，本工具完全免费，无隐藏费用，且无需安装软件。" },
+      { q: "如何将 PDF 压缩到 1MB 或 200kb 以下？", a: "建议选择“强力压缩”模式。我们使用数字重扫描技术，能大幅减少图片分辨率，适合邮件发送。" },
+      { q: "支持 Mac、Windows 或手机使用吗？", a: "支持。这是一个跨平台的网页服务，无论您使用 macOS、Windows、iPhone 或 Android，只要有浏览器即可使用。" },
+      { q: "我的文件会被上传到服务器吗？", a: "绝对不会。您的文件永远不会离开您的设备，确保 100% 的隐私安全。" },
+      { q: "这是 Adobe Acrobat 的免费替代方案吗？", a: "是的，对于 PDF 压缩功能，我们提供类似的效果但完全免费。" },
+      { q: "为什么压缩后的文字变成图片了？", a: "为了达到最大压缩率，“标准”与“强力”模式会将页面转换为图像。若需保留文字，请使用“轻度压缩”。" }
     ],
     items: {
       images: "影像资源",
@@ -162,13 +169,14 @@ const translations = {
       analyzingStruct: "分析文件结构...",
       cleaningMeta: "清除元数据...",
       rebuilding: "重组对象流..."
-    }
+    },
+    visits: "累计浏览人次"
   },
   'en': {
     name: "English",
-    metaTitle: "PDF Master - 100% Local & Privacy-First PDF Compressor",
-    metaDesc: "The securest PDF compressor running entirely in your browser. No server uploads, ensuring 100% privacy. Features digital rasterization for maximum compression.",
-    keywords: "compress pdf, local execution, privacy protection, secure pdf, offline pdf, no server upload",
+    metaTitle: "PDF Master - Free Online PDF Compressor for Mac & Mobile",
+    metaDesc: "Compress PDF to 1MB or 200kb securely. Works on Mac, Windows & Mobile. 100% local execution with no server uploads. The best free Adobe alternative.",
+    keywords: "compress pdf to 1mb, pdf reducer, free pdf tool, mac pdf compressor, mobile pdf compress, offline pdf, no server upload",
 
     title: "PDF Master",
     subtitle: "Pro - Privacy First",
@@ -220,8 +228,12 @@ const translations = {
     sponsorBtn: "Sponsor",
     faqTitle: "Frequently Asked Questions",
     faqs: [
-      { q: "Is this PDF compressor free?", a: "Yes, it is completely free and works 100% in your browser." },
-      { q: "Are my files uploaded to a server?", a: "Absolutely not. We use WebAssembly to process files locally. Your files never leave your device." }
+      { q: "Is this PDF compressor free?", a: "Yes, it is completely free, open-source friendly, and requires no installation." },
+      { q: "How to compress PDF to 1MB or 200kb?", a: "Use the 'Aggressive' mode. Our re-scan technology reduces image resolution to fit strict size limits like email attachments." },
+      { q: "Does it work on Mac, Windows, or Mobile?", a: "Yes! It's a cross-platform web app compatible with macOS, Windows, iOS, and Android browsers." },
+      { q: "Are my files uploaded to a server?", a: "Absolutely not. We use WebAssembly to process files locally. Your files never leave your device." },
+      { q: "Is this a free alternative to Adobe Acrobat?", a: "Yes, for compression tasks, this tool offers similar results for free without bulky software." },
+      { q: "Why is the text converted to images?", a: "To achieve maximum compression in 'Balanced' and 'Aggressive' modes, we rasterize pages. Use 'Light' mode to keep text selectable." }
     ],
     items: {
       images: "Images",
@@ -241,12 +253,13 @@ const translations = {
       analyzingStruct: "Analyzing structure...",
       cleaningMeta: "Cleaning metadata...",
       rebuilding: "Rebuilding streams..."
-    }
+    },
+    visits: "Total Visits"
   },
   'ja': {
     name: "日本語",
-    metaTitle: "PDF圧縮マスター - 100%ローカル実行・プライバシー保護のPDF軽量化ツール",
-    metaDesc: "ブラウザでPDFを圧縮。サーバーへのアップロード一切なし、プライバシーを完全に保護しながらファイルサイズを縮小します。",
+    metaTitle: "PDF圧縮マスター - Mac/スマホ対応、1MB以下に圧縮できる無料ツール",
+    metaDesc: "ブラウザでPDFを圧縮。サーバーへのアップロード一切なし。1MBや200kb以下への圧縮に対応し、Macやスマホでも使える安全なツールです。",
     
     title: "PDF圧縮マスター",
     subtitle: "Pro - プライバシー優先",
@@ -298,8 +311,12 @@ const translations = {
     sponsorBtn: "開発者を支援",
     faqTitle: "よくある質問",
     faqs: [
-      { q: "このツールは無料ですか？", a: "はい、完全無料です。" },
-      { q: "ファイルはサーバーにアップロードされますか？", a: "いいえ、絶対にアップロードされません。すべての処理はお使いのブラウザ内（ローカル）で行われます。" }
+      { q: "このツールは無料ですか？", a: "はい、完全無料です。インストールも不要です。" },
+      { q: "PDFを1MBや200kb以下に圧縮できますか？", a: "「強力圧縮」モードをお使いください。画像の解像度を調整し、メール添付に適したサイズにします。" },
+      { q: "Mac、Windows、スマホで使えますか？", a: "はい、ブラウザがあればどのデバイスでも動作します。" },
+      { q: "ファイルはサーバーにアップロードされますか？", a: "いいえ、絶対にアップロードされません。すべての処理はお使いのブラウザ内（ローカル）で行われます。" },
+      { q: "Adobe Acrobatの代わりになりますか？", a: "はい、圧縮機能に関しては、無料で簡単な代替手段としてご利用いただけます。" },
+      { q: "なぜテキストが画像になるのですか？", a: "「標準」「強力」モードでは、圧縮率を最大化するためにページを画像化します。テキストを保持したい場合は「軽量圧縮」を使用してください。" }
     ],
     items: {
       images: "画像リソース",
@@ -319,11 +336,12 @@ const translations = {
       analyzingStruct: "構造を分析中...",
       cleaningMeta: "メタデータを削除中...",
       rebuilding: "ストリームを再構築中..."
-    }
+    },
+    visits: "累計訪問数"
   },
   'ko': {
     name: "한국어",
-    metaTitle: "PDF 압축 마스터 - 100% 로컬 실행 & 개인정보 보호 PDF 도구",
+    metaTitle: "PDF 압축 마스터 - 1MB 이하 압축, Mac/모바일 지원 무료 도구",
     
     title: "PDF 압축 마스터",
     subtitle: "Pro - 개인정보 보호 우선",
@@ -375,8 +393,12 @@ const translations = {
     sponsorBtn: "후원하기",
     faqTitle: "자주 묻는 질문",
     faqs: [
-      { q: "이 도구는 무료인가요?", a: "네, 완전 무료입니다." },
-      { q: "파일이 서버로 전송되나요?", a: "절대 아닙니다. 모든 처리는 브라우저 내에서 로컬로 이루어집니다." }
+      { q: "이 도구는 무료인가요?", a: "네, 완전 무료이며 설치가 필요 없습니다." },
+      { q: "PDF를 1MB나 200kb 이하로 줄일 수 있나요?", a: "'강력 압축' 모드를 사용하세요. 이미지 해상도를 줄여 이메일 전송에 최적화합니다." },
+      { q: "Mac, Windows, 모바일에서 작동하나요?", a: "네, 브라우저가 있는 모든 기기에서 사용할 수 있습니다." },
+      { q: "파일이 서버로 전송되나요?", a: "절대 아닙니다. 모든 처리는 브라우저 내에서 로컬로 이루어집니다." },
+      { q: "Adobe Acrobat의 무료 대안인가요?", a: "네, 압축 기능에 대해서는 무료로 유사한 효과를 제공합니다." },
+      { q: "왜 텍스트가 이미지로 변환되나요?", a: "압축률을 극대화하기 위해 '표준' 및 '강력' 모드는 페이지를 이미지화합니다. 텍스트를 유지하려면 '경량 압축'을 사용하세요." }
     ],
     items: {
       images: "이미지 리소스",
@@ -396,7 +418,8 @@ const translations = {
       analyzingStruct: "구조 분석 중...",
       cleaningMeta: "메타데이터 정리 중...",
       rebuilding: "스트림 재구축 중..."
-    }
+    },
+    visits: "방문자 수"
   },
   'es': {
     name: "Español",
@@ -448,6 +471,15 @@ const translations = {
     techNoteTitle: "Nota técnica",
     techNoteDesc: "Usamos PDF.js para renderizar páginas en imágenes y recomprimir como JPEG.",
     sponsorBtn: "Patrocinar",
+    faqTitle: "Preguntas Frecuentes",
+    faqs: [
+      { q: "¿Es gratuita esta herramienta?", a: "Sí, es totalmente gratuita y no requiere instalación." },
+      { q: "¿Cómo comprimir PDF a 1MB o 200kb?", a: "Usa el modo 'Agresivo'. Nuestra tecnología de re-escaneo reduce la resolución de imagen para ajustarse a límites estrictos." },
+      { q: "¿Funciona en Mac, Windows o móvil?", a: "Sí, funciona en cualquier dispositivo con navegador." },
+      { q: "¿Se suben mis archivos a un servidor?", a: "No, nunca. Todo se procesa localmente en tu navegador." },
+      { q: "¿Es una alternativa gratuita a Adobe Acrobat?", a: "Sí, para tareas de compresión, esta herramienta ofrece resultados similares de forma gratuita." },
+      { q: "¿Por qué el texto se convierte en imágenes?", a: "Para lograr la máxima compresión en los modos 'Estándar' y 'Agresivo'. Usa el modo 'Ligero' para mantener el texto seleccionable." }
+    ],
     items: {
       images: "Imágenes",
       structure: "Estructura",
@@ -466,7 +498,8 @@ const translations = {
       analyzingStruct: "Analizando estructura...",
       cleaningMeta: "Limpiando metadatos...",
       rebuilding: "Reconstruyendo flujos..."
-    }
+    },
+    visits: "Visitas"
   },
   'fr': {
     name: "Français",
@@ -518,6 +551,15 @@ const translations = {
     techNoteTitle: "Note technique",
     techNoteDesc: "Utilisation de PDF.js pour le rendu en images et la recompression JPEG.",
     sponsorBtn: "Soutenir",
+    faqTitle: "FAQ",
+    faqs: [
+      { q: "Est-ce gratuit ?", a: "Oui, totalement gratuit et sans installation." },
+      { q: "Comment compresser à 1 Mo ou 200 ko ?", a: "Utilisez le mode 'Agressif'. Notre technologie réduit la résolution pour les e-mails." },
+      { q: "Compatible Mac/Windows/Mobile ?", a: "Oui, fonctionne sur tout navigateur." },
+      { q: "Mes fichiers sont-ils envoyés sur un serveur ?", a: "Non, jamais. Tout reste sur votre appareil." },
+      { q: "Est-ce une alternative gratuite à Adobe Acrobat ?", a: "Oui, pour la compression, cet outil offre des résultats similaires gratuitement." },
+      { q: "Pourquoi le texte devient-il une image ?", a: "Pour maximiser la compression dans les modes 'Standard' et 'Agressif'. Utilisez le mode 'Léger' pour garder le texte." }
+    ],
     items: {
       images: "Images",
       structure: "Structure",
@@ -536,7 +578,8 @@ const translations = {
       analyzingStruct: "Analyse structure...",
       cleaningMeta: "Nettoyage métadonnées...",
       rebuilding: "Reconstruction..."
-    }
+    },
+    visits: "Visites"
   },
   'de': {
     name: "Deutsch",
@@ -588,6 +631,15 @@ const translations = {
     techNoteTitle: "Technik",
     techNoteDesc: "Wir nutzen PDF.js für das Bild-Rendering und JPEG-Rekompression.",
     sponsorBtn: "Unterstützen",
+    faqTitle: "FAQ",
+    faqs: [
+      { q: "Ist es kostenlos?", a: "Ja, komplett kostenlos und ohne Installation." },
+      { q: "Wie komprimiere ich auf 1MB oder 200kb?", a: "Nutzen Sie den Modus 'Aggressiv'. Unsere Technologie reduziert die Auflösung für E-Mails." },
+      { q: "Kompatibel mit Mac/Windows/Mobil?", a: "Ja, funktioniert in jedem Browser." },
+      { q: "Werden meine Dateien hochgeladen?", a: "Nein, niemals. Alles bleibt auf Ihrem Gerät." },
+      { q: "Ist dies eine kostenlose Adobe Acrobat-Alternative?", a: "Ja, für Kompressionsaufgaben bieten wir ähnliche Ergebnisse kostenlos." },
+      { q: "Warum wird Text zu Bild?", a: "Um maximale Kompression in 'Standard' und 'Aggressiv' zu erreichen. Nutzen Sie 'Leicht' für Text." }
+    ],
     items: {
       images: "Bilder",
       structure: "Struktur",
@@ -606,7 +658,8 @@ const translations = {
       analyzingStruct: "Analysiere Struktur...",
       cleaningMeta: "Lösche Metadaten...",
       rebuilding: "Erstelle neu..."
-    }
+    },
+    visits: "Besucher"
   },
   'pt': {
     name: "Português",
@@ -658,6 +711,15 @@ const translations = {
     techNoteTitle: "Nota técnica",
     techNoteDesc: "Usamos PDF.js para renderização de imagem e recompressão JPEG.",
     sponsorBtn: "Apoiar",
+    faqTitle: "Perguntas Frequentes",
+    faqs: [
+      { q: "É gratuito?", a: "Sim, totalmente gratuito e sem instalação." },
+      { q: "Como comprimir para 1MB ou 200kb?", a: "Use o modo 'Agressivo'. Nossa tecnologia reduz a resolução para emails." },
+      { q: "Funciona em Mac/Windows/Celular?", a: "Sim, funciona em qualquer navegador." },
+      { q: "Meus arquivos são enviados para um servidor?", a: "Não, nunca. Tudo fica no seu dispositivo." },
+      { q: "É uma alternativa gratuita ao Adobe Acrobat?", a: "Sim, para compressão, oferece resultados similares de graça." },
+      { q: "Por que o texto vira imagem?", a: "Para máxima compressão nos modos 'Padrão' e 'Agressivo'. Use 'Leve' para manter texto." }
+    ],
     items: {
       images: "Imagens",
       structure: "Estrutura",
@@ -676,7 +738,8 @@ const translations = {
       analyzingStruct: "Analisando...",
       cleaningMeta: "Limpando meta...",
       rebuilding: "Reconstruindo..."
-    }
+    },
+    visits: "Visitas"
   },
   'ru': {
     name: "Русский",
@@ -728,6 +791,15 @@ const translations = {
     techNoteTitle: "Тех. заметка",
     techNoteDesc: "Используется PDF.js для рендеринга в изображения и JPEG сжатия.",
     sponsorBtn: "Поддержать",
+    faqTitle: "Часто задаваемые вопросы",
+    faqs: [
+      { q: "Это бесплатно?", a: "Да, полностью бесплатно и без установки." },
+      { q: "Как сжать до 1МБ или 200кб?", a: "Используйте 'Агрессивный' режим. Он уменьшает разрешение для почты." },
+      { q: "Работает на Mac/Windows/Mobile?", a: "Да, работает в любом браузере." },
+      { q: "Мои файлы загружаются на сервер?", a: "Нет, никогда. Все остается на вашем устройстве." },
+      { q: "Это бесплатная альтернатива Adobe Acrobat?", a: "Да, для сжатия это отличный бесплатный аналог." },
+      { q: "Почему текст стал картинкой?", a: "Для максимального сжатия. Используйте 'Легкий' режим для сохранения текста." }
+    ],
     items: {
       images: "Изображения",
       structure: "Структура",
@@ -746,7 +818,8 @@ const translations = {
       analyzingStruct: "Анализ...",
       cleaningMeta: "Очистка...",
       rebuilding: "Сборка..."
-    }
+    },
+    visits: "Визиты"
   },
   'it': {
     name: "Italiano",
@@ -798,6 +871,15 @@ const translations = {
     techNoteTitle: "Nota tecnica",
     techNoteDesc: "Uso di PDF.js per rendering in immagini e compressione JPEG.",
     sponsorBtn: "Supporta",
+    faqTitle: "FAQ",
+    faqs: [
+      { q: "È gratuito?", a: "Sì, completamente gratuito e senza installazione." },
+      { q: "Come comprimere a 1MB o 200kb?", a: "Usa la modalità 'Aggressivo'. Riduce la risoluzione per le email." },
+      { q: "Funziona su Mac/Windows/Mobile?", a: "Sì, funziona su qualsiasi browser." },
+      { q: "I miei file vengono caricati?", a: "No, mai. Tutto rimane sul tuo dispositivo." },
+      { q: "È un'alternativa gratuita ad Adobe Acrobat?", a: "Sì, per la compressione offre risultati simili gratuitamente." },
+      { q: "Perché il testo diventa immagine?", a: "Per la massima compressione in 'Standard' e 'Aggressivo'. Usa 'Leggero' per il testo." }
+    ],
     items: {
       images: "Immagini",
       structure: "Struttura",
@@ -816,7 +898,8 @@ const translations = {
       analyzingStruct: "Analisi...",
       cleaningMeta: "Pulizia...",
       rebuilding: "Ricostruzione..."
-    }
+    },
+    visits: "Visite"
   },
   'tr': {
     name: "Türkçe",
@@ -868,6 +951,15 @@ const translations = {
     techNoteTitle: "Teknik Not",
     techNoteDesc: "PDF.js ve JPEG sıkıştırma kullanılıyor.",
     sponsorBtn: "Destekle",
+    faqTitle: "SSS",
+    faqs: [
+      { q: "Ücretsiz mi?", a: "Evet, tamamen ücretsiz ve kurulum gerektirmez." },
+      { q: "1MB veya 200kb'a nasıl sıkıştırılır?", a: "'Agresif' modu kullanın. E-posta için çözünürlüğü düşürür." },
+      { q: "Mac/Windows/Mobil'de çalışır mı?", a: "Evet, tüm tarayıcılarda çalışır." },
+      { q: "Dosyalarım yükleniyor mu?", a: "Hayır, asla. Her şey cihazınızda kalır." },
+      { q: "Adobe Acrobat'a ücretsiz bir alternatif mi?", a: "Evet, sıkıştırma için ücretsiz benzer sonuçlar sunar." },
+      { q: "Metin neden resme dönüşüyor?", a: "Maksimum sıkıştırma için. Metni korumak için 'Hafif' modu kullanın." }
+    ],
     items: {
       images: "Resimler",
       structure: "Yapı",
@@ -886,7 +978,8 @@ const translations = {
       analyzingStruct: "Analiz...",
       cleaningMeta: "Temizleniyor...",
       rebuilding: "Oluşturuluyor..."
-    }
+    },
+    visits: "Ziyaretler"
   },
   'ar': {
     name: "العربية",
@@ -938,6 +1031,15 @@ const translations = {
     techNoteTitle: "ملاحظة تقنية",
     techNoteDesc: "نستخدم PDF.js لتحويل الصفحات إلى صور وضغط JPEG.",
     sponsorBtn: "دعم المطور",
+    faqTitle: "أسئلة شائعة",
+    faqs: [
+      { q: "هل هذا مجاني؟", a: "نعم، مجاني تمامًا ولا يتطلب تثبيت." },
+      { q: "كيف أضغط إلى 1MB أو 200kb؟", a: "استخدم الوضع 'القوي'. يقلل الدقة للبريد الإلكتروني." },
+      { q: "هل يعمل على Mac/Windows/الجوال؟", a: "نعم، يعمل على أي متصفح." },
+      { q: "هل يتم رفع ملفاتي؟", a: "لا، أبدًا. كل شيء يبقى على جهازك." },
+      { q: "هل هو بديل مجاني لـ Adobe Acrobat؟", a: "نعم، للضغط، يوفر نتائج مماثلة مجانًا." },
+      { q: "لماذا يتحول النص إلى صورة؟", a: "لأقصى ضغط. استخدم 'خفيف' للنصوص." }
+    ],
     items: {
       images: "صور",
       structure: "هيكل",
@@ -956,7 +1058,8 @@ const translations = {
       analyzingStruct: "تحليل الهيكل...",
       cleaningMeta: "تنظيف البيانات...",
       rebuilding: "إعادة البناء..."
-    }
+    },
+    visits: "الزيارات"
   }
 };
 
@@ -973,6 +1076,7 @@ export default function App() {
   const [errorMsg, setErrorMsg] = useState('');
   const [lang, setLang] = useState('zh-TW'); // 預設語言
   const [showLangMenu, setShowLangMenu] = useState(false);
+  const [pageId, setPageId] = useState('');
   
   // 壓縮等級狀態 'low' | 'medium' | 'high'
   const [compressionMode, setCompressionMode] = useState('medium');
@@ -996,7 +1100,10 @@ export default function App() {
       setLang('en');
     }
 
-    // 2. 載入函式庫
+    // 2. 設定計數器 Page ID (確保在 client 端執行)
+    setPageId(window.location.hostname || 'localhost');
+
+    // 3. 載入函式庫
     const loadLibs = async () => {
       try {
         await loadScript("https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js");
